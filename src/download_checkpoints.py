@@ -37,35 +37,35 @@ def fetch_instantid_checkpoints():
     hf_hub_download(
         repo_id='artificialguybr/3DRedmond-V1',
         filename='3DRedmond-3DRenderStyle-3DRenderAF.safetensors',
-        local_dir='./models/loras',
+        local_dir='./loras',
         local_dir_use_symlinks=False
     )
 
     hf_hub_download(
         repo_id='artificialguybr/ps1redmond-ps1-game-graphics-lora-for-sdxl',
         filename='PS1Redmond-PS1Game-Playstation1Graphics.safetensors',
-        local_dir='./models/loras',
+        local_dir='./loras',
         local_dir_use_symlinks=False
     )
 
     hf_hub_download(
         repo_id='artificialguybr/PixelArtRedmond',
         filename='PixelArtRedmond-Lite64.safetensors',
-        local_dir='./models/loras',
+        local_dir='./loras',
         local_dir_use_symlinks=False
     )
 
     hf_hub_download(
         repo_id='artificialguybr/ClayAnimationRedmond',
         filename='ClayAnimationRedm.safetensors',
-        local_dir='./models/loras',
+        local_dir='./loras',
         local_dir_use_symlinks=False
     )
 
     hf_hub_download(
         repo_id='artificialguybr/ToyRedmond-ToyLoraForSDXL10',
         filename='ToyRedmond-FnkRedmAF.safetensors',
-        local_dir='./models/loras',
+        local_dir='./loras',
         local_dir_use_symlinks=False
     )
 

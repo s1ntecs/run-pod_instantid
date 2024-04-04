@@ -50,12 +50,12 @@ logger = RunPodLogger()
 
 
 LORA_WEIGHTS_MAPPING = {
-    "3D": "./models/loras/3DRedmond-3DRenderStyle-3DRenderAF.safetensors",
-    "Emoji": "./models/loras/emoji.safetensors",
-    "Video game": "./models/loras/PS1Redmond-PS1Game-Playstation1Graphics.safetensors",
-    "Pixels": "./models/loras/PixelArtRedmond-Lite64.safetensors",
-    "Clay": "./models/loras/ClayAnimationRedm.safetensors",
-    "Toy": "./models/loras/ToyRedmond-FnkRedmAF.safetensors",
+    "3D": "./loras/3DRedmond-3DRenderStyle-3DRenderAF.safetensors",
+    "Emoji": "./loras/emoji.safetensors",
+    "Video game": "./loras/PS1Redmond-PS1Game-Playstation1Graphics.safetensors",
+    "Pixels": "./loras/PixelArtRedmond-Lite64.safetensors",
+    "Clay": "./loras/ClayAnimationRedm.safetensors",
+    "Toy": "./loras/ToyRedmond-FnkRedmAF.safetensors",
 }
 
 # ---------------------------------------------------------------------------- #
