@@ -8,12 +8,12 @@ def fetch_instantid_checkpoints():
     """
     Fetches InstantID checkpoints from the HuggingFace model hub.
     """
-    hf_hub_download(
-        repo_id="SargeZT/controlnet-sd-xl-1.0-depth-16bit-zoe",
-        filename="depth-zoe-xl-v1.0-controlnet.safetensors",
-        local_dir="./models/controlnet",
-        local_dir_use_symlinks=False
-    )
+    # hf_hub_download(
+    #     repo_id="SargeZT/controlnet-sd-xl-1.0-depth-16bit-zoe",
+    #     filename="depth-zoe-xl-v1.0-controlnet.safetensors",
+    #     local_dir="./models/controlnet",
+    #     local_dir_use_symlinks=False
+    # )
     hf_hub_download(
         repo_id='InstantX/InstantID',
         filename='ControlNetModel/config.json',
@@ -89,9 +89,9 @@ def get_instantid_pipeline():
 # depth-zoe-xl-v1.0-controlnet.safetensors
     args = {
         'controlnet': ControlNetModel.from_pretrained(
-            './checkpoints/depth-zoe-xl-v1.0-controlnet.safetensors',
-            torch_dtype=torch_dtype,
-            use_safe_tensors=True,),
+            # './checkpoints/depth-zoe-xl-v1.0-controlnet.safetensors',
+            "SargeZT/controlnet-sd-xl-1.0-depth-16bit-zoe",
+            torch_dtype=torch_dtype),
         'torch_dtype': torch_dtype,
     }
 
