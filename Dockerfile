@@ -48,12 +48,14 @@ RUN pip3 install --no-cache-dir torch==2.0.1 torchvision torchaudio --index-url 
     pip3 install -r requirements.txt
 
 # Download the checkpoints
-RUN python3 download_checkpoints.py
-
 RUN mkdir checkpoints
 
 RUN mkdir models
 RUN mkdir models/loras
+
+RUN python3 download_checkpoints.py
+
+
 
 # Download antelopev2 models from Huggingface
 RUN git lfs install && \
