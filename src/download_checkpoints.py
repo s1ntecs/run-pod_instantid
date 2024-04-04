@@ -27,7 +27,12 @@ def fetch_instantid_checkpoints():
         local_dir='./checkpoints',
         local_dir_use_symlinks=False
     )
-
+    hf_hub_download(
+        repo_id='InstantX/InstantID',
+        filename='ControlNetModel/diffusion_pytorch_model.safetensors',
+        local_dir='./checkpoints',
+        local_dir_use_symlinks=False
+    )
      # DL Loras
     hf_hub_download(
         repo_id='artificialguybr/3DRedmond-V1',
@@ -90,7 +95,8 @@ def get_instantid_pipeline():
     args = {
         'controlnet': ControlNetModel.from_pretrained(
             # './checkpoints/depth-zoe-xl-v1.0-controlnet.safetensors',
-            "SargeZT/controlnet-sd-xl-1.0-depth-16bit-zoe",
+            # "SargeZT/controlnet-sd-xl-1.0-depth-16bit-zoe",
+            './checkpoints/ControlNetModel',
             torch_dtype=torch_dtype),
         'torch_dtype': torch_dtype,
     }
