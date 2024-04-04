@@ -39,7 +39,7 @@ RUN apt update && \
 # Set the working directory
 WORKDIR /workspace
 
-RUN pwd
+RUN ls
 
 RUN git clone https://github.com/s1ntecs/run-pod_instantid.git
 
