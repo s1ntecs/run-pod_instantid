@@ -96,7 +96,7 @@ def determine_file_extension(image_data):
 
 
 def get_instantid_pipeline(pretrained_model_name_or_path,
-                           loras_path="artificialguybr/3DRedmond-3DRenderStyle-3DRenderAF.safetensors"):
+                           loras_path="./loras/3DRedmond-3DRenderStyle-3DRenderAF.safetensors"):
     if pretrained_model_name_or_path.endswith(
             '.ckpt'
     ) or pretrained_model_name_or_path.endswith('.safetensors'):
@@ -135,7 +135,9 @@ def get_instantid_pipeline(pretrained_model_name_or_path,
             ).to(device)
 
         pipe.scheduler = diffusers.EulerDiscreteScheduler.from_config(pipe.scheduler.config)
-    if loras_path != "None":
+    if loras_path != "3D":
+        pipe.unfuse_lora()
+        pipe.unload_lora_weights()
         pipe.load_lora_weights(loras_path)
         pipe.fuse_lora(lora_scale=0.8)
     pipe.load_ip_adapter_instantid(face_adapter)
