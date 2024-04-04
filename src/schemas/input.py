@@ -31,7 +31,8 @@ INPUT_SCHEMA = {
     'style_name': {
         'type': str,
         'required': False,
-        'default': 'Watercolor',
+        'default': 'Watercolor'
+    },
     'num_steps': {
         'type': int,
         'required': False,
