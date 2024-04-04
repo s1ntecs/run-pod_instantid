@@ -36,7 +36,7 @@ DEFAULT_MODEL = 'frankjoshua/albedobaseXL_v13'
 DEFAULT_STYLE_NAME = 'Watercolor'
 
 # Load face encoder
-app = FaceAnalysis(name='antelopev2', root='./models', providers=['CUDAExecutionProvider', 'CPUExecutionProvider'])
+app = FaceAnalysis(name='antelopev2', root='./', providers=['CUDAExecutionProvider', 'CPUExecutionProvider'])
 app.prepare(ctx_id=0, det_size=(640, 640))
 
 # Path to InstantID models
