@@ -12,7 +12,6 @@ from PIL import Image, ImageOps
 import diffusers
 from diffusers.models import ControlNetModel
 
-import insightface
 from insightface.app import FaceAnalysis
 
 from style_template import styles
@@ -41,8 +40,8 @@ app.prepare(ctx_id=0, det_size=(640, 640))
 
 # Path to InstantID models
 face_adapter = f'./checkpoints/ip-adapter.bin'
-controlnet_path = f'./checkpoints/depth-zoe-xl-v1.0-controlnet.safetensors'
-
+# controlnet_path = f'./checkpoints/depth-zoe-xl-v1.0-controlnet.safetensors'
+controlnet_path = f'./checkpoints/ControlNetModel'
 # Load pipeline
 controlnet = ControlNetModel.from_pretrained(controlnet_path, torch_dtype=dtype)
 

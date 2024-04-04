@@ -2,7 +2,7 @@ INPUT_SCHEMA = {
     'model': {
         'type': str,
         'required': False,
-        'default': 'wangqixun/YamerMIX_v8'
+        'default': 'frankjoshua/albedobaseXL_v13'
     },
     "stye": {
         'type': str,
@@ -61,11 +61,11 @@ INPUT_SCHEMA = {
     'width': {
         'type': int,
         'required': False,
-        'default': 0
+        'default': 1024
     },
     'height': {
         'type': int,
         'required': False,
-        'default': 0
+        'default': 1024
     }
 }
