@@ -96,7 +96,7 @@ def determine_file_extension(image_data):
 
 
 def get_instantid_pipeline(pretrained_model_name_or_path,
-                           loras_path="./loras/3DRedmond-3DRenderStyle-3DRenderAF.safetensors"):
+                           lora_style="3D"):
     if pretrained_model_name_or_path.endswith(
             '.ckpt'
     ) or pretrained_model_name_or_path.endswith('.safetensors'):
@@ -135,10 +135,10 @@ def get_instantid_pipeline(pretrained_model_name_or_path,
             ).to(device)
 
         pipe.scheduler = diffusers.EulerDiscreteScheduler.from_config(pipe.scheduler.config)
-    if loras_path != "3D":
+    if lora_style != "3D":
         pipe.unfuse_lora()
         pipe.unload_lora_weights()
-        pipe.load_lora_weights(loras_path)
+        pipe.load_lora_weights(LORA_WEIGHTS_MAPPING[lora_style])
         pipe.fuse_lora(lora_scale=0.8)
     pipe.load_ip_adapter_instantid(face_adapter)
 
@@ -240,7 +240,7 @@ def generate_image(
 
     global CURRENT_MODEL, PIPELINE
 
-    loras_path = LORA_WEIGHTS_MAPPING.get(style)
+    # loras_path = LORA_WEIGHTS_MAPPING.get(style)
 
     if face_image is None:
         raise Exception(f'Cannot find any input face image! Please upload the face image')
@@ -249,7 +249,7 @@ def generate_image(
         prompt = 'a person'
 
     # apply the style template
-    prompt, negative_prompt = apply_style(style_name, prompt, negative_prompt)
+    # prompt, negative_prompt = apply_style(style_name, prompt, negative_prompt)
 
     if width == 0 and height == 0:
         resize_size = None
@@ -293,10 +293,9 @@ def generate_image(
     logger.info(f'Model: {model}', job_id)
     logger.info(f'Prompt: {prompt})', job_id)
     logger.info(f'Negative Prompt: {negative_prompt}', job_id)
-
-    if model != CURRENT_MODEL or style != "3D":
-        PIPELINE = get_instantid_pipeline(model, loras_path)
-        CURRENT_MODEL = model
+    # if model != CURRENT_MODEL or style != "3D":
+    #     PIPELINE = get_instantid_pipeline(model, style)
+    #     CURRENT_MODEL = model
 
     PIPELINE.set_ip_adapter_scale(adapter_strength_ratio)
     images = PIPELINE(
