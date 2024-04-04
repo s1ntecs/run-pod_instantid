@@ -4,6 +4,11 @@ INPUT_SCHEMA = {
         'required': False,
         'default': 'wangqixun/YamerMIX_v8'
     },
+    "stye": {
+        'type': str,
+        'required': False,
+        'default': '3D'
+    },
     'face_image': {
         'type': str,
         'required': True,

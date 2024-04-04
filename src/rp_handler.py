@@ -235,7 +235,7 @@ def generate_image(
         seed,
         width,
         height,
-        style):
+        style="3D"):
 
     global CURRENT_MODEL, PIPELINE
 
