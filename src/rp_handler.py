@@ -247,6 +247,7 @@ def generate_image(
 
     if prompt is None:
         prompt = 'a person'
+    
 
     # apply the style template
     # prompt, negative_prompt = apply_style(style_name, prompt, negative_prompt)
@@ -293,7 +294,12 @@ def generate_image(
     logger.info(f'Model: {model}', job_id)
     logger.info(f'Prompt: {prompt})', job_id)
     logger.info(f'Negative Prompt: {negative_prompt}', job_id)
-    # if model != CURRENT_MODEL or style != "3D":
+    if style != "3D":
+        PIPELINE.unfuse_lora()
+        PIPELINE.unload_lora_weights()
+        PIPELINE.load_lora_weights(LORA_WEIGHTS_MAPPING.get(style))
+        PIPELINE.fuse_lora(lora_scale=0.8)
+    # if style != "3D":
     #     PIPELINE = get_instantid_pipeline(model, style)
     #     CURRENT_MODEL = model
 
